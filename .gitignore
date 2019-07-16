@@ -1,4 +1,6 @@
 ﻿# .idea/workspace.xml 파일 제외 
+*.xml
 
 
-Code/**/*.xml
+# .class 파일 모드 제외 
+*.class

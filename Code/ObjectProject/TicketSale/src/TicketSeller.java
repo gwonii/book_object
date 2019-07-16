@@ -2,7 +2,7 @@ public class TicketSeller {
 
   private TicketOffice ticketOffice;
 
-  public TicketSeller(TicketOffice ticketOffice){
+  public TicketSeller(TicketOffice ticketOffice) {
     this.ticketOffice = ticketOffice;
   }
 
@@ -10,20 +10,10 @@ public class TicketSeller {
     return ticketOffice;
   }
 
-  public void sellTo(Audience audience){
-    if (audience.getBag().hasInvitation()) {
-      // 초대장을 가지고 있다면??
-      Ticket ticket = ticketOffice.getTicket();
-      audience.getBag().setTicket(ticket);
-    } else {
-      // 초대장을 가지고 있지 않다면?
-      Ticket ticket = ticketOffice.getTicket();
-      audience.getBag().minusCash(ticket.getPrice());
-      ticketOffice.plusAmount(ticket.getPrice());
-      audience.getBag().setTicket(ticket);
-    }
+  public void sellTo(Audience audience) {
+    ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
+    // 기존의 TicketSeller가 Audience의 Bag에 접근하지 않고,
+    // 그 권한을 모두 Audience의 buy메소드에 줌으로써
+    // TicketSeller와 Bag의 결합도가 낮아졌다.
   }
-  // 이렇게 되면 Theater에서 audiance와 ticketOffice에 모두 접근했으나 이제
-  // ticketSeller에서만 audiance와 ticketOffice에 접근한다.
-
 }
