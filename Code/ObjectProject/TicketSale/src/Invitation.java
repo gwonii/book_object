@@ -9,4 +9,5 @@ public class Invitation {
   public LocalDateTime getWhen() {
     return when;
   }
+
 }
