@@ -17,24 +17,31 @@ public class Bag {
     this.cash = cash;
   }
 
+  public Long hold(Ticket ticket){
+    if(hasInvitation()){
+      setTicket(ticket);
+      return 0L;
+    } else {
+      setTicket(ticket);
+      minusCash(ticket.getPrice());
+      return ticket.getPrice();
+    }
+  }
+
   // 객체의 여부를 확인 할 때는 null과의 비교를 한다.
-  public boolean hasInvitation() {
+  private boolean hasInvitation() {
     return invitation != null;
   }
 
-  public boolean hasTicket() {
+  private boolean hasTicket() {
     return ticket != null;
   }
 
-  public void setTicket(Ticket ticket) {
+  private void setTicket(Ticket ticket) {
     this.ticket = ticket;
   }
 
-  public void plusCash(long cash) {
-    this.cash += cash;
-  }
-
-  public void minusCash(long cash) {
+  private void minusCash(long cash) {
     this.cash -= cash;
   }
 

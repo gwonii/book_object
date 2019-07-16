@@ -28,9 +28,6 @@ public class TicketSaleExample {
     theater.enter(audience);
     theater.enter(audience2);
 
-    System.out.println(audience.getBag().getCash());
-    System.out.println(audience2.getBag().getCash());
-
     int ticketNum = 0;
     for(Ticket tic : ticketOffice.getTickets()){
       ticketNum++;
