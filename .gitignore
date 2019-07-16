@@ -1,5 +1,4 @@
-﻿# workspace.xml 파일 제외 
+﻿# .idea/workspace.xml 파일 제외 
 
 
-Code/ObjectProject/.idea/workspace.xml
-
+Code/**/*.xml
